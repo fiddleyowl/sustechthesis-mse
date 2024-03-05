@@ -495,7 +495,9 @@
   \phantomsection
   \addcontentsline{toc}{section}{参考文献}
   \sectionmark{参考文献}
-  \section*{\centerline{参考文献}}
+  \begin{center}
+    \黑体\三号 参考文献
+  \end{center}
 }
 \ifsustech@chinese
   \AtBeginDocument{%

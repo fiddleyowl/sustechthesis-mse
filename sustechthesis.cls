@@ -245,6 +245,9 @@
     wide=\parindent, % 段首缩进
     nosep % 无额外间距
   }
+  \setlist[itemize]{ % 调整列表格式
+    nosep % 无额外间距
+  }
 }
 
 % 目录

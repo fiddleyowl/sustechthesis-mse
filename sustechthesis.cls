@@ -516,6 +516,16 @@
   }{}
 }
 
+% 结论
+\newcommand{\结论}{
+  \phantomsection
+  \clearpage
+  \addcontentsline{toc}{section}{结\hspace*{1em}论}
+  \sectionmark{结\hspace*{1em}论}
+  \begin{center}
+    \黑体\三号 结\hspace*{1em}论
+  \end{center}
+}
 % 附录
 \newcommand{\附录}{
   \phantomsection

@@ -240,6 +240,11 @@
   {\黑体\小四}{\thesubsubsection}{0.5em}{}
   \titlespacing{\subsubsection}{0pt}{0.5em}{0em} % 取消段后空行
 
+  \setlist[enumerate]{ % 调整列表格式
+    label={(\alph*)}, % 小写字母
+    wide=\parindent, % 段首缩进
+    nosep % 无额外间距
+  }
 }
 
 % 目录

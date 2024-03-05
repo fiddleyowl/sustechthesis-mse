@@ -1,0 +1,146 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program  = xelatex
+
+\section{一些样例}
+
+\subsection{参考文献}
+
+参考文献一般使用\verbbox{\cite{<key>}}命令，效果如是\cite{Nicholas1998Handbook}，引用作者使用 \\ \verbbox{\citeauthor{<key>}}，效果如是“\citeauthor{goossens1994latex}”。
+
+\subsection{表格}
+
+表格与图片可以直接通过\verbbox{\ref{<key>}}来引用，例如表 \ref{table2}、图 \ref{F:test-a}、图 \ref{F:test-b-sub-b}。材料科学与工程系模板中表格为双倍行距，为不影响其余文字的正常行距，在 \\ \verbbox{\begin{table}}后使用\verbbox{\renewcommand{\arraystretch}{1.5}}使得仅在表格内部使用双倍行距。
+
+\begin{table}[htb]
+% h-here,t-top,b-bottom,优先级依次下降
+    % 居中，模版已设定表格浮动体居中
+    \renewcommand{\arraystretch}{1.5} % 双倍行距
+    \centering
+    \caption{表格的标题应该放在上方}
+    \label{table}
+    \begin{tabular}{lc} % 三线表不能有竖线,l-left,c-center,r-right
+        \toprule
+        %三线表-top 线
+        Example & Result \\
+        \midrule
+        %三线表-middle 线
+        Example1          & 0.25 \\
+        Example2          & 0.36 \\
+        \bottomrule
+        %三线表-底线
+    \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+    \renewcommand{\arraystretch}{1.5} % 双倍行距
+    \centering
+    \caption{带表注的表格的标题}
+    \label{table2}
+    \begin{threeparttable}
+        \setlength{\tabcolsep}{0.6cm}{ % 调节表格长度
+                \begin{tabular}{lc} % 三线表不能有竖线,l-left,c-center,r-right
+                    \toprule
+                    %三线表-top 线
+                    Example & Result \\
+                    \midrule
+                    %三线表-middle 线
+                    Example1          & 0.25\tnote{1} \\
+                    Example2          & 0.36 \\
+                    \bottomrule
+                    %三线表-底线
+                \end{tabular}
+        }
+        \begin{tablenotes}
+            \item[1] 数据来源：南方科技大学 \LaTeX 模版 % 增加表格数据来源注释
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+\subsection{图片}
+
+在材料科学与工程系的模板中，图片需要和论文组图一样在子图的左上角标序，并在全图的说明文本内说明每张子图的含义。在子图中使用\verbbox{\caption}命令时，需要该命令放置在\verbbox{\includegraphics}命令之前。
+
+图 \ref{F:test-a} 是单张示例图片，图 \ref{F:test-b} 是两张图片的组图示例，图 \ref{F:test-c} 是四张图片的组图示例。更多图片的排版方式可参照这些示例。
+
+\clearpage
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=.5\textwidth]{example-image-a}
+    \caption{自带测试图片---Test image}\label{F:test-a}
+    % 图片的标题应该在下方
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{.45\linewidth}
+        \centering
+        \caption{}\label{F:test-b-sub-a}
+        \includegraphics[width=1\textwidth]{example-image-a}
+    \end{subfigure}
+    \hfill % 两张图片之间的间隔，确保第二张图片的标题不会挨着第一张图片的内容
+    \begin{subfigure}[t]{.45\linewidth}
+        \centering
+        \caption{}\label{F:test-b-sub-b}
+        \includegraphics[width=1\textwidth]{example-image-b}
+    \end{subfigure}
+    \caption{自带测试图片---Test image，其中(a)为测试图片A，(b)为测试图片B。}\label{F:test-b}
+\end{figure}
+
+如果一页恰好没有文字，只有图片，\LaTeX 在默认状态下会将这些图片居中放置而不是从最上方开始。如果需要将图片放置在最上方，可以在\verbbox{\clearpage}手动换页后，尝试\verbbox{\begin{figure}[!ht]}命令。
+
+\clearpage
+
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}[t]{.45\linewidth}
+        \centering
+        \caption{}\label{F:test-c-sub-a}
+        \includegraphics[width=1\textwidth]{example-image-a}
+    \end{subfigure}
+    \hfill % 两张图片之间的间隔，确保第二张图片的标题不会挨着第一张图片的内容
+    \begin{subfigure}[t]{.45\linewidth}
+        \centering
+        \caption{}\label{F:test-c-sub-b}
+        \includegraphics[width=1\textwidth]{example-image-b}
+    \end{subfigure} % 换行位置
+    \begin{subfigure}[t]{.45\linewidth}
+        \centering
+        \caption{}\label{F:test-c-sub-c}
+        \includegraphics[width=1\textwidth]{example-image-c}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{.45\linewidth}
+        \centering
+        \caption{}\label{F:test-c-sub-d}
+        \includegraphics[width=1\textwidth]{example-image-a}
+    \end{subfigure}
+    \caption{自带测试图片---Test image，其中(a)为测试图片A，(b)为测试图片B，(c)为测试图片C，(d)也为测试图片A。}\label{F:test-c}
+\end{figure}
+
+\subsection{文字}
+
+\subsubsection{花菁素类染料}
+
+花菁素类染料是指以具有聚甲炔（Polymethine）共轭结构为发色团的染料。花菁素类染料通常具有一条聚甲炔链，两端与两个氮原子相连。两个氮原子分别属于两个芳杂环，例如吡咯、吡啶、吲哚、喹啉。最早用于活体近红外荧光成像的花菁素类染料是已经被美国食品和药物管理局（FDA）批准用于人体临床使用的吲哚菁绿（ICG）。
+
+\subsubsection{Nonsteady-state Diffusion}
+
+Most practical diffusion situations are nonsteady-state ones. That is, the diffusion ﬂux and the concentration gradient at some particular point in a solid vary with time, with a net accumulation or depletion of the diffusing species resulting. This is illustrated in Figure x, which shows concentration proﬁles at three different diffusion times. Under conditions of nonsteady state, use of Equation \ref{eq:diffusion} is no longer convenient; instead, the partial differential equation
+\begin{equation}
+    \frac{\partial C}{\partial t} = \frac{\partial}{\partial x} (D \frac{\partial C}{\partial x})
+    \label{eq:diffusion}
+\end{equation}
+known as \textbf{Fick's second law}, is used. If the diffusion coefficient is independent of composition (which should be verified for each particular diffusion situation), Equation \ref{eq:diffusion} simplifies to
+\begin{equation}
+    \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}
+    \label{eq:diffusion2}
+\end{equation}
+
+\subsubsection{Determination of Phase Amounts}
+
+Consider again the example shown in Figure x, in which at $\mathrm{1250 \,^\circ C}$ both $\alpha$ and liquid phases are present for a 35 wt\% Ni-65 wt\% Cu alloy. The problem is to compute the fraction of each of the $\alpha$ and liquid phases. The tie line has been constructed that was used for the determination of $\alpha$ and $L$ phase compositions. Let the overall alloy composition be located along the tie line and denoted as $C_0$, and mass fractions be represented by $W_L$ and $W_\alpha$ for the respective phases. From the lever rule, $W_L$ may be computed according to
+\begin{align}
+    W_L &= \frac{S}{R+S} \label{eq:lever1} \\
+    &= \frac{C_\alpha-C_0}{C_\alpha-C_L} \label{eq:lever2}
+\end{align}

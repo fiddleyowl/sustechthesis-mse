@@ -10,14 +10,14 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sustechthesis}
-  [2024/02/28 v1.3.6 SUSTech Thesis Template]
+  [2024/03/05 v1.3.6-mse SUSTech Thesis Template for MSE]
 \RequirePackage{ifxetex,ifluatex,ifthen}
   \ifthenelse{\boolean{xetex}\OR\boolean{luatex}}{}{
     \ClassError{sustechthesis}{You Should Use XeLaTeX or LuaLaTeX To Compile.}}
 
 \hyphenation{SUSTech-Thesis}
 \newcommand{\sustechthesis}{SUSTechThesis}
-\newcommand{\version}{1.3.5}
+\newcommand{\version}{1.3.6-mse}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
   family=sustech,
@@ -74,7 +74,7 @@
 \titlespacing{\subsection}{0pt}{1.2ex plus .0ex minus .0ex}{.3ex plus .0ex}
 
 \RequirePackage{geometry}
-  \geometry{a4paper,top=27mm,bottom=31mm,left=25mm,right=25mm,bindingoffset=5mm}
+  \geometry{a4paper,top=1in,bottom=1in,left=1.25in,right=1.25in,bindingoffset=0mm} % 根据材料科学与工程系模板样例，页边距上下各1英寸，左右各1.25英寸，无装订线偏移
 \RequirePackage{amssymb}
 \RequirePackage{setspace}
 \RequirePackage{graphicx}
@@ -121,7 +121,7 @@
   \ctexset{
     % 需要使用ctexart文类，否则报错键不存在
     section = {
-      name={{},.},
+      name={第,章{}}, % 第 1 章 等，不使用数字
       format={\黑体\三号},
     },
     subsection = {
@@ -134,15 +134,23 @@
 \RequirePackage{caption}
   \renewcommand{\captionfont}{\bfseries\songti\五号} %表题,图题用五号宋体加黑
   \DeclareCaptionLabelSeparator{enspace}{\enspace}
+  \DeclareCaptionLabelSeparator{chspace}{\hspace*{1em}} % 隔一个中文空格
+  \DeclareCaptionLabelFormat{Brackets}{(#2)} % 小标题两侧括号
   \DeclareCaptionLabelFormat{rightBracket}{#2)}
-  \captionsetup[table]{labelsep=enspace} %表序表题之间没有标点,而是一个空格,默认前缀为表
-  \captionsetup[figure]{labelsep=enspace} %图序图题之间没有标点,而是一个空格，默认前缀为图
+  \captionsetup[table]{labelsep=chspace} %表序表题之间没有标点,而是一个空格,默认前缀为表
+  \captionsetup[figure]{labelsep=chspace} %图序图题之间没有标点,而是一个空格，默认前缀为图
   \ifsustech@chinese
     \ctexset{figurename = {图}, tablename  = {表},}%
   \else
     \ctexset{figurename = {Figure}, tablename  = {Table},}%
   \fi
-  \captionsetup[subfigure]{labelformat=rightBracket, labelsep=enspace}% 子图a,b,c外没有括号
+  \captionsetup[subfigure]{
+    labelformat=Brackets, % 两侧括号
+    labelsep=none, % 无文字，取消序号与文字间的空格
+    singlelinecheck=false, % 不居中
+    justification=raggedright, % 左对齐
+    margin = {-3ex, 1em} % 将小序号移至图左上方
+    }
 
 % 设定浮动体内字体大小
 \RequirePackage{floatrow}
@@ -160,7 +168,7 @@
   font        = floatfont,
 }
 
-\renewcommand{\baselinestretch}{1.72} %调整正文为1.5倍行距
+\renewcommand{\baselinestretch}{1.66} %调整正文为1.5倍行距，根据材料系样例1.66似乎更合适
 \RequirePackage[MSWordLineSpacingMultiple=1.5]{zhlineskip}
   % 行距设置
   \newenvironment{行距}[1]%
@@ -168,6 +176,7 @@
     {\linespread{2.14}\selectfont}
 \RequirePackage{tocloft}
   % 设置目录样式
+  \renewcommand{\contentsname}{目\hspace*{1em}录} % “目”与“录”中间空一个中文字符
   \renewcommand\cfttoctitlefont{\hfill\黑体\小二}
   \renewcommand\cftaftertoctitle{\hfill}
   \renewcommand\cftsecfont{\粗体\宋体\四号}
@@ -180,8 +189,8 @@
   \setlength\cftparskip{7pt}
   % 修改目录标题之间的距离
   \setlength\cftbeforesecskip{0bp}
-  \setlength\cftsubsecindent{0bp}
-  \setlength\cftsubsubsecindent{0bp}
+  % \setlength\cftsubsecindent{0bp} % 有缩进
+  % \setlength\cftsubsubsecindent{0bp} % 有缩进
 \RequirePackage{xkeyval}
   % 根据名称定义中英文控制序列
   \def\中英信息#1,#2#3{
@@ -214,6 +223,23 @@
 \newcommand{\正文格式化}{
   \setcounter{page}{1}
   \pagenumbering{arabic}
+
+  \AddToHook{cmd/section/before}{\clearpage} % 每章节开始新页
+
+  % 第 1 章 等，序号与一级标题间空一个汉字
+  \titleformat{\section}
+  {\黑体\三号\filcenter}{第 \thesection 章}{1em}{}
+  \titlespacing{\section}{0pt}{0pt}{1em} % 段后补1行
+
+  % 1.1 等，序号与二级标题间空半个汉字
+  \titleformat{\subsection}
+  {\黑体\四号}{\thesubsection}{0.5em}{}
+
+  % 1.1.1 等，序号与三级标题间空半个汉字
+  \titleformat{\subsubsection}
+  {\黑体\小四}{\thesubsubsection}{0.5em}{}
+  \titlespacing{\subsubsection}{0pt}{0.5em}{0em} % 取消段后空行
+
 }
 
 % 目录
@@ -422,7 +448,7 @@
       }%
     \vskip 1cm
     \宋体\四号\姓名@中 \\[9pt]
-    （\楷书\小四{\系别@中 \quad 指导教师： \指导老师@中}）
+    （\楷书\小四{\系别@中 \quad 指导教师： \指导老师@中\职称@中}） % 需要职称
   \end{center}
   \vskip 1.5cm
 }
@@ -487,20 +513,23 @@
 \newcommand{\附录}{
   \phantomsection
   \clearpage
-  \addcontentsline{toc}{section}{附录}
+  \addcontentsline{toc}{section}{附\hspace*{1em}录}
   \addtocounter{section}{1}
-  \sectionmark{附录}
+  \sectionmark{附\hspace*{1em}录}
   \begin{center}
-    \黑体\三号 附录
+    \黑体\三号 附\hspace*{1em}录
   \end{center}
   \appendix
 }
 % 致谢
 \newcommand{\致谢}{
   \phantomsection
-  \addcontentsline{toc}{section}{致谢}
-  \sectionmark{致谢}
-  \section*{\centerline{致谢}}
+  \clearpage
+  \addcontentsline{toc}{section}{致\hspace*{1em}谢}
+  \sectionmark{致\hspace*{1em}谢}
+  \begin{center}
+    \黑体\三号 致\hspace*{1em}谢
+  \end{center}
 }
 % 设定元数据
 \ifsustech@chinese

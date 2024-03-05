@@ -29,7 +29,23 @@ Changelog 维护应保持最新版本在文件上面的原则，日期格式按�
 - 预发布版本使用形如 "`[1.0.2-rc.1] - 2021-06-11`" 作为二级标题，
 - 正式发布版本使用形如 "`[1.0.1] - 2020-07-25`" 作为二级标题。
 
-## [Unreleased](https://github.com/iydon/sustechthesis/compare/v1.3.6...HEAD)
+## [Unreleased](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.6-mse...HEAD)
+
+## [1.3.6-mse](https://github.com/iydon/sustechthesis/compare/v1.3.6...fiddleyowl:sustechthesis-mse:v1.3.6-mse) - 2024-03-05
+
+根据材料科学与工程系示例文档修改格式。
+
+### Added
+- 增加了一些示例文本，如公式、图片等。
+
+### Changed
+- 根据样例，调整全文页边距为上下 1 in，左右 1.25 in，取消左侧装订线偏移。
+- 调整了全文行间距。
+- 摘要中指导老师增加了职称。
+- 修改了章节格式，每章节均为新页。
+- 修改了目录样式，增加了摘要的页码，并调整了字样和缩进。
+- 修改了图注表注的样式，使用一个中文空格分隔图号和图名，表号和表名。
+- 调整子图的编号格式，并移至子图的左上角。
 
 ## [1.3.6](https://github.com/iydon/sustechthesis/compare/v1.3.5...v1.3.6) - 2024-02-28
 

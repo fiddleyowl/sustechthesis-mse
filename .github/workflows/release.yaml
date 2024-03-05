@@ -38,7 +38,6 @@ jobs:
         with:
           root_file: |
             main.tex
-            # slides.tex
           latexmk_use_xelatex: true
 
       - name: Tree All project
@@ -52,7 +51,6 @@ jobs:
           name: PDF_files
           path: |
             main.pdf
-            # slides.pdf
 
       - name: release 
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -63,7 +61,6 @@ jobs:
           title: "${{steps.branch_name.outputs.SOURCE_TAG}}"
           files: |
             ./main.pdf
-            # ./slides.pdf
             ./fonts.zip
             ./sustechthesis.cls
 

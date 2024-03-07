@@ -336,12 +336,12 @@
         \sustech@info@item*[5em]{题目：}[9.15cm]{\题目@中}\\[9pt]
         \ifdefempty{\副标题@中}%
         {% empty
-          \relax
+          % \relax % 去掉此行空行
         }{% not empty
           \sustech@info@item[5em]{}[9cm]{\副标题@中}\\[9pt]
         }%
       \end{tabular}
-      \vfill
+      % \vfill % 防止过短的标题留下空行
       \begin{tabular}{lc}
         \sustech@info@item[5em]{姓名：}[9cm]{\姓名@中}\\[9pt]
         \sustech@info@item[5em]{学号：}[9cm]{\学号@中}\\[9pt]
@@ -351,6 +351,7 @@
       \end{tabular}
     }
     \vskip 3.14cm
+    \vfill % 增加以使得日期位于页面底部而不会随着标题长度变化而上下浮动
     {\宋体\三号\时间@中}
   \end{center}
   \clearpage
@@ -374,12 +375,12 @@
         \sustech@info@item*{Thesis Title:}[9.92cm]{\题目@英}\\[9pt]
         \ifdefempty{\副标题@英}%
         {% empty
-          \relax
+          % \relax % 去掉此行空行
         }{% not empty
           \sustech@info@item{}[9cm]{\副标题@英}\\[9pt]
         }%
       \end{tabular}
-      \vfill
+      % \vfill % 防止过短的标题留下空行
       \begin{tabular}{lc}
         \sustech@info@item{Student Name:}[9cm]{\姓名@英}\\[9pt]
         \sustech@info@item{Student ID:}[9cm]{\学号@英}\\[9pt]
@@ -389,6 +390,7 @@
       \end{tabular}
     }
     \vskip 2.1cm
+    \vfill % 增加以使得日期位于页面底部而不会随着标题长度变化而上下浮动
     \三号 Date: \时间@英
   \end{center}
   \clearpage\restoregeometry

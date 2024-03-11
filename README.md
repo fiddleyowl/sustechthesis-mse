@@ -24,7 +24,6 @@ Southern University of Science and Technology Thesis Template LaTeX Template for
 * `config/preamble.tex`: 导言区，导入宏包，宏定义。
 * `config/info.tex`: 论文信息，例如：标题，作者，等。
 * `main.tex`: 主文档，编排章节顺序。
-* `slides.tex`: beamer 幻灯片模版。
 
 
 ## XeLaTeX 构建
@@ -65,6 +64,6 @@ git push --delete origin v1.2.0
 
 ## 致谢
 
-* 本模版根据南方科技大学-教学工作部发布的相关 [《撰写规范》和《样例》](http://tao.sustech.edu.cn/studentService/graduation_project.html) 编写，如有冲突以官网规定为准。
+* 原作者模版根据南方科技大学-教学工作部发布的相关 [《撰写规范》和《样例》](http://tao.sustech.edu.cn/studentService/graduation_project.html) 编写，如有冲突以官网规定为准。
   * 如果《样例》中存在与《撰写规范》中的规定不符之处，以《撰写规范》中的文字叙述为准。
-* 本模板基于材料科学与工程系示例文档修改格式，格式要求可能因指导老师、年份等因素而有所不同。
+* 本模板基于材料科学与工程系示例文档修改格式。由于材料系所提供文档和规范仅由邮件发送，本模板所参考[《撰写规范》](reference/01%20南方科技大学材料科学与工程系本科毕业设计（论文）撰写规范.pdf)和[《样例》](reference/02%20南方科技大学材料科学与工程系本科毕业设计（论文）中英文样例（试行）.pdf)可能与最新版本不符，如有冲突请以最新版本的《撰写规范》为准。

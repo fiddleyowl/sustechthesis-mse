@@ -29,7 +29,21 @@ Changelog 维护应保持最新版本在文件上面的原则，日期格式按�
 - 预发布版本使用形如 "`[1.0.2-rc.1] - 2021-06-11`" 作为二级标题，
 - 正式发布版本使用形如 "`[1.0.1] - 2020-07-25`" 作为二级标题。
 
-## [Unreleased](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.6-mse...HEAD)
+## [Unreleased](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.7-mse...HEAD)
+
+## [1.3.7-mse](https://github.com/iydon/sustechthesis/compare/v1.3.6-mse...fiddleyowl:sustechthesis-mse:v1.3.7-mse) - 2024-03-11
+
+### Added
+- 增加了结论章节。
+- 增加了样例文档。
+
+### Changed
+- 调整标题页样式，清除无副标题或主标题太短时标题与下方内容的间距。
+- 调整列表格式，移除多余的空行。
+- 调整参考文献格式，移除可能包含的DOI，链接等多余信息。
+
+### Removed
+- 移除了幻灯片模板。
 
 ## [1.3.6-mse](https://github.com/iydon/sustechthesis/compare/v1.3.6...fiddleyowl:sustechthesis-mse:v1.3.6-mse) - 2024-03-05
 

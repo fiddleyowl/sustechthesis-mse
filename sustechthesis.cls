@@ -10,14 +10,14 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sustechthesis}
-  [2024/03/05 v1.3.6-mse SUSTech Thesis Template for MSE]
+  [2024/03/11 v1.3.7-mse SUSTech Thesis Template for MSE]
 \RequirePackage{ifxetex,ifluatex,ifthen}
   \ifthenelse{\boolean{xetex}\OR\boolean{luatex}}{}{
     \ClassError{sustechthesis}{You Should Use XeLaTeX or LuaLaTeX To Compile.}}
 
 \hyphenation{SUSTech-Thesis}
 \newcommand{\sustechthesis}{SUSTechThesis}
-\newcommand{\version}{1.3.6-mse}
+\newcommand{\version}{1.3.7-mse}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
   family=sustech,

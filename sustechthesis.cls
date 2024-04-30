@@ -10,14 +10,14 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sustechthesis}
-  [2024/03/11 v1.3.7-mse SUSTech Thesis Template for MSE]
+  [2024/03/11 v1.3.8-mse SUSTech Thesis Template for MSE]
 \RequirePackage{ifxetex,ifluatex,ifthen}
   \ifthenelse{\boolean{xetex}\OR\boolean{luatex}}{}{
     \ClassError{sustechthesis}{You Should Use XeLaTeX or LuaLaTeX To Compile.}}
 
 \hyphenation{SUSTech-Thesis}
 \newcommand{\sustechthesis}{SUSTechThesis}
-\newcommand{\version}{1.3.7-mse}
+\newcommand{\version}{1.3.8-mse}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
   family=sustech,
@@ -137,8 +137,8 @@
   \DeclareCaptionLabelSeparator{chspace}{\hspace*{1em}} % 隔一个中文空格
   \DeclareCaptionLabelFormat{Brackets}{(#2)} % 小标题两侧括号
   \DeclareCaptionLabelFormat{rightBracket}{#2)}
-  \captionsetup[table]{labelsep=chspace} %表序表题之间没有标点,而是一个空格,默认前缀为表
-  \captionsetup[figure]{labelsep=chspace} %图序图题之间没有标点,而是一个空格，默认前缀为图
+  \captionsetup[table]{labelsep=chspace, justification=centering} %表序表题之间没有标点,而是一个空格,默认前缀为表。表注居中。
+  \captionsetup[figure]{labelsep=chspace, justification=centering} %图序图题之间没有标点,而是一个空格，默认前缀为图。图注居中。
   \ifsustech@chinese
     \ctexset{figurename = {图}, tablename  = {表},}%
   \else
@@ -248,6 +248,9 @@
   \setlist[itemize]{ % 调整列表格式
     nosep % 无额外间距
   }
+
+  \interfootnotelinepenalty=10000 % 防止脚注分页
+
 }
 
 % 目录

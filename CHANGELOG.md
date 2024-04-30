@@ -29,9 +29,18 @@ Changelog 维护应保持最新版本在文件上面的原则，日期格式按�
 - 预发布版本使用形如 "`[1.0.2-rc.1] - 2021-06-11`" 作为二级标题，
 - 正式发布版本使用形如 "`[1.0.1] - 2020-07-25`" 作为二级标题。
 
-## [Unreleased](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.7-mse...HEAD)
+## [Unreleased](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.8-mse...HEAD)
 
-## [1.3.7-mse](https://github.com/iydon/sustechthesis/compare/v1.3.6-mse...fiddleyowl:sustechthesis-mse:v1.3.7-mse) - 2024-03-11
+## [1.3.8-mse](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.7-mse...fiddleyowl:sustechthesis-mse:v1.3.8-mse) - 2024-04-30
+
+### Changed
+- 调整图注和表注的格式，样例要求居中。
+
+### Fixed
+- 修复了目录中摘要章节的跳转问题。
+- 修复了可能的脚注分页问题。
+
+## [1.3.7-mse](https://github.com/fiddleyowl/sustechthesis-mse/compare/v1.3.6-mse...fiddleyowl:sustechthesis-mse:v1.3.7-mse) - 2024-03-11
 
 ### Added
 - 增加了结论章节。
